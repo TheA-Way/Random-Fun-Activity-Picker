@@ -14,7 +14,7 @@ window.geometry("300x300") # Set the initial window size: width=300 px, height=3
 
 #list options
 hobbies = []
-break_Activities = []
+break_activities = []
 
 #populate list with text files
 with open('hobbies.txt', 'r') as hobby_file, open('breaks.txt', 'r') as break_file:
@@ -24,7 +24,7 @@ with open('hobbies.txt', 'r') as hobby_file, open('breaks.txt', 'r') as break_fi
 
     #breaks
     for line in break_file:
-        break_Activities.append(line.strip())
+        break_activities.append(line.strip())
 
 #functions
 def hobby_picker():
@@ -35,10 +35,10 @@ def hobby_picker():
         return x                   # Return the chosen hobby.
 
 def break_picker():
-    if len(break_Activities) == 0:
+    if len(break_activities) == 0:
         return "There's nothing here mate."
     else:
-        x = random.choice(break_Activities) # Randomly pick one break activity.
+        x = random.choice(break_activities) # Randomly pick one break activity.
         return x                            # Return the chosen break activity.
 
 def home():
@@ -163,12 +163,12 @@ def save_activity(activity_type):
             with open('hobbies.txt', 'a') as f:
                 f.write(new_item + '\n')
         elif activity_type == "break":
-            break_Activities.append(new_item)
+            break_activities.append(new_item)
             with open('breaks.txt', 'a') as f:
                 f.write(new_item + '\n')
         else:  # both
             hobbies.append(new_item)
-            break_Activities.append(new_item)
+            break_activities.append(new_item)
             with open('hobbies.txt', 'a') as f:
                 f.write(new_item + '\n')
             with open('breaks.txt', 'a') as f:
